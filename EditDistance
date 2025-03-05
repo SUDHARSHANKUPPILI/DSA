@@ -1,0 +1,28 @@
+import java.util.*;
+public class EditDistance{
+    public static int minEditDistance(String X,String Y){
+        int n=X.lenght(),m=Y.length();
+        int[][] c=new int[n+1][m+1];
+        for (int i=0;i<=n;i++)
+        c[i][0]=i;
+        for (int j=0;j<=m;j++)
+        c[0][j]=j;
+        for (int i=1;i<=n;i++)
+        for(int j=1;j<=m;i++)
+        if(X.charAt(i-1)==Y.charAt(j-1))
+        C[i][j]=C[i-1][j-1];
+        else
+         C[i][j]=Math.min(C[i-1][j-1]+2,math.min(C[i-1][j]+1,C[i][j-1]+1));
+        return C[n][m];
+     }
+     public static void main(String args[]){
+     Scanner scanner=new Scanner(System.in);
+     System.out.print('enter first string:');
+     String X=scanner.nextline();
+     System.out.print('enter second string:');
+     String Y=scanner.nextline();
+     scanner.close();
+     System.out.println("minimum Edit Distance:"+minEditDistance(X,Y));
+    }
+
+}
